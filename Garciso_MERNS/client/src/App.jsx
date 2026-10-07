@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
 
     axios
-      .get("http://localhost:5000/students")
+      .get("https://merns-finals.vercel.app/students")
       .then((response) => {
         setStudents(response.data);
       })
@@ -30,14 +30,14 @@ function App() {
   const saveStudent = (event) => {
    event.preventDefault();
    axios
-     .post("http://localhost:5000/students", {
+     .post("https://merns-finals.vercel.app/students", {
        name: name,
        course: course,
        age: age
      })
      .then(() => {
        axios
-         .get("http://localhost:5000/students")
+         .get("https://merns-finals.vercel.app/students")
          .then((response) => {
            setStudents(response.data);
          });
@@ -49,9 +49,9 @@ function App() {
  };
  const deleteStudent = (id) => {
    axios
-     .delete(`http://localhost:5000/students/${id}`).then(() => { 
+     .delete(`https://merns-finals.vercel.app/students/${id}`).then(() => { 
        axios
-         .get("http://localhost:5000/students")
+         .get("https://merns-finals.vercel.app/students")
          .then((response) => {
            setStudents(response.data);
          });
@@ -61,14 +61,14 @@ function App() {
  const updateStudent = (event) => {
    event.preventDefault();
    axios
-     .put(`http://localhost:5000/students/${id}`, {
+     .put(`https://merns-finals.vercel.app/students/${id}`, {
        name: name,
        course: course,
        age: age
      })
      .then(() => {
        axios
-         .get("http://localhost:5000/students")
+         .get("https://merns-finals.vercel.app/students")
          .then((response) => {
            setStudents(response.data);
          });
